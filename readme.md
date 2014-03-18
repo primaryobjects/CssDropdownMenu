@@ -3,7 +3,15 @@ MVC .NET CSS Dropdown Menu
 
 Create a simple MVC .NET CSS dropdown menu. The project includes HTML, CSS, Javascript and an easy MVC partial view to render custom css dropdown menus.
 
-(screenshot.jpg)
+![](screenshot.jpg)
+
+To include the dropdown menu in your view, you can use a partial view helper or the raw html. For example:
+
+Partial View
+
+```
+@Html.Partial("DropDownMenu", new DropDownMenu("lstMonsters") { Label = "Monster:", Items = UIManager.GetDropDownList(() => UIManager.GetEnumStrings<MonsterType>(), false) })
+```
 
 The dropdown menu includes an underlying HTML "select" element, which is kept in-sync with the values in the dropdown menu. This allows for easy querying of the dropdown menu values through typical jQuery calls, for example:
 
