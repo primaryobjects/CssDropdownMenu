@@ -14,6 +14,7 @@ To include the dropdown menu in your view, you can use a partial view helper or 
 In the above example, the DropDownMenu class accepts an Id in the constructor, which is used for the select element's Id. DropDownMenu also includes the following properties:
 
 Label: Text to display to the left of the dropdown menu (optional).
+
 Items: List of SelectListItem, as you would typically provide to an MVC Html.DropDownList().
 
 The dropdown menu includes an underlying HTML "select" element, which is kept in-sync with the values in the dropdown menu. This allows for easy management of the dropdown menus with javascript and jquery calls, for example:
