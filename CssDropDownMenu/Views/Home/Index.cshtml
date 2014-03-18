@@ -1,0 +1,32 @@
+﻿@using CssDropDownMenu.Models
+@using CssDropDownMenu.Types
+@using CssDropDownMenu.Managers
+
+@{
+    ViewBag.Title = "MVC .NET CSS DropDown Menu Example";
+}
+
+<div style="margin: 0 0 0 20px;">
+    <h2>MVC .NET CSS DropDown Menu Example</h2>
+
+    <div>
+        @Html.Partial("DropDownMenu", new DropDownMenu("lstMonsters") { Label = "Monster:", Items = UIManager.GetDropDownList(() => UIManager.GetEnumStrings<MonsterType>(), false) })
+        @Html.Partial("DropDownMenu", new DropDownMenu("lstWeapons") { Label = "Weapon:", Items = UIManager.GetDropDownList(() => UIManager.GetEnumStrings<WeaponType>(), false) })
+        @Html.Partial("DropDownMenu", new DropDownMenu("lstTreasures") { Label = "Treasure:", Items = UIManager.GetDropDownList(() => UIManager.GetEnumStrings<TreasureType>(), true) })
+
+        <div style="clear: both;"></div>
+        <div id="status" style="margin: 60px 0 0 0; font-size: 14px; color: #00aa0;"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Automatically select an option in the dropdown.
+            $('#lstMonsters').val(5);
+
+            // Setup a change event for a dropdown.
+            $('#lstMonsters').change(function () {
+                $('#status').text('You selected ' + $(this).find(':selected').text() + '.');
+            });
+        });
+    </script>
+</div>

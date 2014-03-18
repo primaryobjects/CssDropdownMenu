@@ -1,0 +1,29 @@
+﻿@using CssDropDownMenu.Models
+
+@model DropDownMenu
+
+<div class="left">
+    @if (!string.IsNullOrEmpty(Model.Label))
+    {
+        <div class="dropdown-label left">
+            @Model.Label
+        </div>
+    }
+    <div class="left">
+        <div class="dropdown">
+            @Html.DropDownList(Model.Id, Model.Items, new { style = "display: none;" })
+            <a class="dropdown-selection">
+                <span class="text"></span>
+                <img class="caret" src="/images/select-arrow.png" />
+            </a>
+            <div class="dropdown-menu">
+                <ul class="dropdown-options">
+                    @foreach (var item in Model.Items)
+                    {
+                        <li data-value="@item.Value"><a href="#">@item.Text</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
